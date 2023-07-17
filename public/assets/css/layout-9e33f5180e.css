@@ -1,0 +1,29 @@
+body {
+  background-color: #f2f23f;
+  margin: 30px 0 0 30px;
+}
+
+body a {
+  text-decoration: none;
+  margin-right: 5px;
+}
+
+body h1 {
+  color: brown;
+}
+
+body a button,
+.submit {
+  margin-top: 8px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: #5d5dcf;
+  color: white;
+  border-radius: 10px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.submit {
+  font-size: 1rem;
+}

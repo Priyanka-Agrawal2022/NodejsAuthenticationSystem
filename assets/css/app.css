@@ -1,0 +1,18 @@
+body a button {
+  font-size: 1rem;
+}
+
+h1 {
+  margin: 0;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+#container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#sign-out {
+  margin-right: 30px;
+}
