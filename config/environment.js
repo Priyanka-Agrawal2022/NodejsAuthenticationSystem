@@ -1,14 +1,14 @@
-const fs = require("fs");
-const rfs = require("rotating-file-stream");
-const path = require("path");
+// const fs = require("fs");
+// const rfs = require("rotating-file-stream");
+// const path = require("path");
 
-const logDirectory = path.join(__dirname, "../production_logs");
-fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
+// const logDirectory = path.join(__dirname, "../production_logs");
+// fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
 
-const accessLogStream = rfs.createStream("access.log", {
-  interval: "1d",
-  path: logDirectory,
-});
+// const accessLogStream = rfs.createStream("access.log", {
+//   interval: "1d",
+//   path: logDirectory,
+// });
 
 const development = {
   name: "development",
@@ -28,10 +28,10 @@ const development = {
   google_client_id: process.env.NODEJS_AUTH_GOOGLE_CLIENT_ID,
   google_client_secret: process.env.NODEJS_AUTH_GOOGLE_CLIENT_SECRET,
   google_callback_url: "http://localhost:8000/users/auth/google/callback",
-  morgan: {
-    mode: "dev",
-    options: { stream: accessLogStream },
-  },
+  // morgan: {
+  //   mode: "dev",
+  //   options: { stream: accessLogStream },
+  // },
 };
 
 const production = {
@@ -52,10 +52,10 @@ const production = {
   google_client_id: process.env.NODEJS_AUTH_GOOGLE_CLIENT_ID,
   google_client_secret: process.env.NODEJS_AUTH_GOOGLE_CLIENT_SECRET,
   google_callback_url: process.env.NODEJS_AUTH_GOOGLE_CALLBACK_URL,
-  morgan: {
-    mode: "combined",
-    options: { stream: accessLogStream },
-  },
+  // morgan: {
+  //   mode: "combined",
+  //   options: { stream: accessLogStream },
+  // },
 };
 
 module.exports =
