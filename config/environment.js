@@ -32,6 +32,8 @@ const development = {
   //   mode: "dev",
   //   options: { stream: accessLogStream },
   // },
+  redis_url: process.env.NODEJS_AUTH_REDIS_URL,
+  mongodb_atlas_uri: process.env.NODEJS_AUTH_MONGODB_ATLAS_URI,
 };
 
 const production = {
@@ -56,6 +58,8 @@ const production = {
   //   mode: "combined",
   //   options: { stream: accessLogStream },
   // },
+  redis_url: process.env.NODEJS_AUTH_REDIS_URL,
+  mongodb_atlas_uri: process.env.NODEJS_AUTH_MONGODB_ATLAS_URI,
 };
 
 module.exports =

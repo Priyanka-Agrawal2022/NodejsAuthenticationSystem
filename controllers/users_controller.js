@@ -1,8 +1,9 @@
 const User = require("../models/user");
 const crypto = require("crypto");
 const bcryptjs = require("bcryptjs");
-const queue = require("../config/kue");
-const forgotPasswordMailerWorker = require("../workers/forgot_password_mailer_worker");
+// const queue = require("../config/kue");
+const forgotPasswordMailer = require("../mailers/forgot_password_mailer");
+// const forgotPasswordMailerWorker = require("../workers/forgot_password_mailer_worker");
 
 // sign up controller
 module.exports.signUp = async (req, res) => {
@@ -108,24 +109,24 @@ module.exports.generateAccessToken = async (req, res) => {
 
       await User.updateOne({ email: email }, { $set: { token: tempPassword } });
 
-      // forgotPasswordMailer.forgotPassword(user.name, email, tempPassword);
+      forgotPasswordMailer.forgotPassword(user.name, email, tempPassword);
 
       // create a job to send to the queue for forgot password email
-      let job = queue
-        .create("emails", {
-          name: user.name,
-          email,
-          token: tempPassword,
-        })
-        .priority("critical")
-        .save(function (err) {
-          if (err) {
-            console.log("Error in sending to the queue:", err);
-            return;
-          }
+      // let job = queue
+      //   .create("emails", {
+      //     name: user.name,
+      //     email,
+      //     token: tempPassword,
+      //   })
+      //   .priority("critical")
+      //   .save(function (err) {
+      //     if (err) {
+      //       console.log("Error in sending to the queue:", err);
+      //       return;
+      //     }
 
-          console.log("job enqueued", job.id);
-        });
+      //     console.log("job enqueued", job.id);
+      //   });
 
       req.flash("success", "Please check your inbox to reset your password!");
       return res.redirect("back");
