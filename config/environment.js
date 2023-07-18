@@ -34,7 +34,7 @@ const development = {
   // },
   redis_url: process.env.NODEJS_AUTH_REDIS_URL,
   mongodb_atlas_uri: process.env.NODEJS_AUTH_MONGODB_ATLAS_URI,
-  mongodb_atlas_usernname: process.env.NODEJS_AUTH_MONGODB_ATLAS_USERNAME,
+  mongodb_atlas_username: process.env.NODEJS_AUTH_MONGODB_ATLAS_USERNAME,
   mongodb_atlas_password: process.env.NODEJS_AUTH_MONGODB_ATLAS_PASSWORD,
 };
 

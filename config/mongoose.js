@@ -5,7 +5,7 @@ const env = require("../config/environment");
 // mongoose.connect(`mongodb://0.0.0.0/${env.db}`);
 
 mongoose.connect(
-  `mongodb+srv://${env.mongodb_atlas_usernname}:${env.mongodb_atlas_password}@cluster0.zecaxjp.mongodb.net/nodejs_auth_prod`
+  `mongodb+srv://${env.mongodb_atlas_username}:${env.mongodb_atlas_password}@cluster0.zecaxjp.mongodb.net/nodejs_auth_prod`
 );
 
 const db = mongoose.connection;
