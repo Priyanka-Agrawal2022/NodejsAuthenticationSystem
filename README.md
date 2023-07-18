@@ -2,7 +2,7 @@
 
 A complete authentication system built with Nodejs and EJS which can be used as a starter code for any new application.
 
-## [**Live Demo**](https://tinyurl.com/ev8xwwpk)
+## [**Live Demo**](https://zany-erin-shark-sari.cyclic.app)
 
 ### **Features**
 
